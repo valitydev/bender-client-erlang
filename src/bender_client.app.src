@@ -1,0 +1,19 @@
+{application, bender_client, [
+    {description, "Bender service client"},
+    {vsn, "0.1.0"},
+    {registered, []},
+    {applications, [
+        kernel,
+        stdlib,
+        genlib,
+        bender_proto,
+        woody
+    ]},
+    {env, []},
+    {modules, []},
+    {maintainers, [
+        ""
+    ]},
+    {licenses, []},
+    {links, []}
+]}.
