@@ -18,7 +18,7 @@
 
 -type test_case_name() :: atom().
 
--spec all() -> [test_case_name()].
+-spec all() -> [{group, test_case_name()}].
 all() ->
     [
         {group, all_tests},
@@ -59,7 +59,7 @@ init_per_suite(Config) ->
 
 -spec end_per_suite(config()) -> _.
 end_per_suite(Config) ->
-    [application:stop(App) || App <- proplists:get_value(apps, Config)],
+    _ = [application:stop(App) || App <- proplists:get_value(apps, Config)],
     Config.
 
 %%
@@ -70,7 +70,7 @@ end_per_suite(Config) ->
 gen_internal_id(_) ->
     WoodyContext = woody_context:new(),
     IdempotentKey = get_idempotent_key(?EXTERNAL_ID),
-    {ok, {<<"1">>, 1}} = bender_client:gen_sequence(IdempotentKey, <<"SEQ">>, <<"HASH">>, WoodyContext).
+    {ok, {<<"1">>, 1}} = bender_client:gen_sequence(IdempotentKey, <<"SEQ">>, erlang:phash2(<<"HASH">>), WoodyContext).
 
 -spec get_internal_id(config()) -> _.
 get_internal_id(_) ->

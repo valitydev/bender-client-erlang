@@ -8,7 +8,8 @@ TEMPLATES_PATH := .
 # Name of the service
 SERVICE_NAME := bender_client_erlang
 
-BUILD_IMAGE_TAG := 0c638a682f4735a65ef232b81ed872ba494574c3
+BUILD_IMAGE_NAME := build-erlang
+BUILD_IMAGE_TAG := 61a001bbb48128895735a3ac35b0858484fdb2eb
 
 CALL_ANYWHERE := \
 	submodules \
@@ -37,7 +38,7 @@ xref:
 	$(REBAR) xref
 
 lint:
-	elvis rock
+	elvis rock -V
 
 check_format:
 	$(REBAR) fmt -c
@@ -46,7 +47,7 @@ format:
 	$(REBAR) fmt -w
 
 dialyze:
-	$(REBAR) dialyzer
+	$(REBAR) as test dialyzer
 
 clean:
 	$(REBAR) cover -r
