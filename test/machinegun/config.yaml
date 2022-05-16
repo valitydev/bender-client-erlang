@@ -13,4 +13,4 @@ namespaces:
       url: http://bender:8022/v1/stateproc/bender_sequence
 
 storage:
-    type: memory
+  type: memory
