@@ -21,7 +21,7 @@ call(Service, Function, Args, Context0) ->
 
 call(Service, Function, Args, Context, EventHandler, Retry) ->
     Options = get_service_options(Service),
-    Request = {{bender_thrift, Service}, Function, Args},
+    Request = {{bender_bender_thrift, Service}, Function, Args},
     try
         woody_client:call(
             Request,
