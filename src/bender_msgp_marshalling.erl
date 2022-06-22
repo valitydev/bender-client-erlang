@@ -10,7 +10,7 @@
 
 -type value() :: term().
 
--spec marshal(value()) -> msgpack_thrift:'Value'() | no_return().
+-spec marshal(value()) -> msgp_msgpack_thrift:'Value'() | no_return().
 marshal(undefined) ->
     {nl, #msgpack_Nil{}};
 marshal(Boolean) when is_boolean(Boolean) ->
@@ -35,7 +35,7 @@ marshal(Object) when is_map(Object) ->
 marshal(Array) when is_list(Array) ->
     {arr, lists:map(fun marshal/1, Array)}.
 
--spec unmarshal(msgpack_thrift:'Value'()) -> value().
+-spec unmarshal(msgp_msgpack_thrift:'Value'()) -> value().
 unmarshal({nl, #msgpack_Nil{}}) ->
     undefined;
 unmarshal({b, Boolean}) ->
