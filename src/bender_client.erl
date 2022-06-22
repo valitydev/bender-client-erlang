@@ -1,6 +1,6 @@
 -module(bender_client).
 
--include_lib("bender_proto/include/bender_thrift.hrl").
+-include_lib("bender_proto/include/bender_bender_thrift.hrl").
 
 -type woody_context() :: woody_context:ctx().
 -type bender_context() :: #{binary() => term()}.

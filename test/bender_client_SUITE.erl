@@ -1,7 +1,6 @@
 -module(bender_client_SUITE).
 
 -include_lib("stdlib/include/assert.hrl").
--include_lib("common_test/include/ct.hrl").
 
 -export([all/0]).
 
