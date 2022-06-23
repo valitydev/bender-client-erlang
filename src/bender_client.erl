@@ -1,11 +1,11 @@
 -module(bender_client).
 
--include_lib("bender_proto/include/bender_thrift.hrl").
+-include_lib("bender_proto/include/bender_bender_thrift.hrl").
 
 -type woody_context() :: woody_context:ctx().
 -type bender_context() :: #{binary() => term()}.
 -type sequence_params() :: #{minimum => integer()}.
--type bender_schema() :: bender_thrift:'GenerationSchema'().
+-type bender_schema() :: bender_bender_thrift:'GenerationSchema'().
 -type id() :: binary().
 
 -type result() :: {ok, id()} | {ok, id(), bender_context()}.
