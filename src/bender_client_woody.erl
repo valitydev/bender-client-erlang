@@ -40,7 +40,7 @@ call(Service, Function, Args, Context, EventHandler, Retry) ->
 get_service_options(Service) ->
     construct_opts(maps:get(Service, genlib_app:env(?APP, services))).
 
-construct_opts(Opts = #{url := Url}) ->
+construct_opts(#{url := Url} = Opts) ->
     Opts#{url := genlib:to_binary(Url)};
 construct_opts(Url) ->
     #{url => genlib:to_binary(Url)}.
